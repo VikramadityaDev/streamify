@@ -10,7 +10,6 @@ A Flutter application for streaming and downloading music from the YouTube Music
 - [ ] Download songs locally.
 - [ ] Reorder songs in playlist or queue.
 - [ ] Change Audio Quality.
-- [ ] Change Audio Quality.
 - [ ] Dynamic theme support.
 - [ ] Add to favorites.
 - [ ] Search Suggestions.
