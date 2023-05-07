@@ -1,53 +1,59 @@
 import 'dart:convert';
 
-class Artist {
-  String name;
-  String? id;
+class Thumbnail {
+  String url;
+  int? width;
+  int? height;
 
-  Artist({
-    required this.name,
-    this.id,
+  Thumbnail({
+    required this.url,
+    this.width,
+    this.height,
   });
 
-  Artist copyWith({
-    String? name,
-    String? id,
+  Thumbnail copyWith({
+    String? url,
+    int? width,
+    int? height,
   }) {
-    return Artist(
-      name: name ?? this.name,
-      id: id ?? this.id,
+    return Thumbnail(
+      url: url ?? this.url,
+      width: width ?? this.width,
+      height: height ?? this.height,
     );
   }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'name': name,
-      'id': id,
+      'url': url,
+      'width': width,
+      'height': height,
     };
   }
 
-  factory Artist.fromMap(Map<String, dynamic> map) {
-    return Artist(
-      name: map['name'] as String,
-      id: map['id'] != null ? map['id'] as String : null,
+  factory Thumbnail.fromMap(Map<String, dynamic> map) {
+    return Thumbnail(
+      url: map['url'] as String,
+      width: map['width'] != null ? map['width'] as int : null,
+      height: map['height'] != null ? map['height'] as int : null,
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Artist.fromJson(String source) =>
-      Artist.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Thumbnail.fromJson(String source) =>
+      Thumbnail.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
-  String toString() => 'Artist(name: $name, id: $id)';
+  String toString() => 'Thumbnail(url: $url, width: $width, height: $height)';
 
   @override
-  bool operator ==(covariant Artist other) {
+  bool operator ==(covariant Thumbnail other) {
     if (identical(this, other)) return true;
 
-    return other.name == name && other.id == id;
+    return other.url == url && other.width == width && other.height == height;
   }
 
   @override
-  int get hashCode => name.hashCode ^ id.hashCode;
+  int get hashCode => url.hashCode ^ width.hashCode ^ height.hashCode;
 }
