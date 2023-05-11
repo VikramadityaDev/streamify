@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:http/http.dart';
 
-class YTMService {
+class YoutubeService {
   static const ytmDomain = 'music.youtube.com';
   static const httpsYtmDomain = 'https://music.youtube.com';
   static const baseApiEndpoint = '/youtubei/v1/';
@@ -39,7 +39,7 @@ class YTMService {
   Map<String, String>? headers;
   Map<String, dynamic>? context;
 
-  YTMService();
+  YoutubeService();
 
   Map<String, String> initializeHeaders() {
     return {
